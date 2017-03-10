@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+</head>
+<body>
+    <div id="main" style="height:400px"></div>
+    <script src="../lib/echarts.min.js"></script>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main')); 
+        var option = {
+        		// /backgroundColor:'#87cefa',
+        		//color:'#fff',//颜色设定不稳定
+        		//renderAsImage:true,
+        		//calculable:true,
+        		//calculableColor:'rgba(255,165,0,0.6)',
+        		//calculableHolderColor:'#000',
+        		title:{
+        			text:"Development",
+        			subtext:'ability',
+        			textStyle:{
+        				fontFamily:"宋体",
+					    fontSize: 18,
+					    fontWeight: 'bolder',
+					    color: '#333'
+					},
+        			borderWidth:2,
+        			padding:5,
+        			borderColor:'#383838',
+        			subtextStyle:{
+        				color: '#aaa'
+        			}
+        		},
+        		toolbox:{
+        			show:true,
+        			x:'right',
+        			y:'top',
+        			feature:{
+        				mark : {show: true},
+			            dataView : {show: true, readOnly: false},
+			            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled', 'force', 'chord', 'pie', 'funnel']},
+			            restore : {show: true},
+			            saveAsImage : {show: true}
+					   }
+        		},
+	            tooltip: {
+	                show: true,
+	                trigger:'item',//axis
+	                backgroundColor:"rgba(0,0,0,0.1)"
+	            },
+	            legend: {
+	                data:['Development ability']
+	            },
+	            xAxis : [
+	                {
+	                    type : 'category',
+	                    data : ["1 years","2 years","3 years","4 years","5 years","6 years"]
+	                }
+	            ],
+	            yAxis : [
+	                {
+	                    type : 'value'
+	                }
+	            ],
+	            series : [
+	                {
+	                    "name":"Development ability",
+	                    "type":"bar",
+	                    "data":[5, 20, 40, 10, 10, 20]
+	                }
+	            ]
+        	};
+
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+    </script>
+</body>
